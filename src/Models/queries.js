@@ -11,6 +11,12 @@ export async function insertPublicUser(user_id, first_name, last_name) {
         });
 }
 
+export async function selectEvent() {
+    await supabase.from('Event')
+        .select('location', 'address', 'likes', 'has_parking', 'is_remote_location', 'post_introduction', 'has_uneven_ground', 'has_bathrooms', 'disposal_method', 'equipment', 'title', 'date_timestamp')
+        .limit(1)
+};
+
 // supabaseSignUp() - is used to sign up a user using the Supabase authentication service.
 // It takes in a formData object containing user signup data.
 export async function supabaseSignUp(formData) {
@@ -44,3 +50,5 @@ export async function supabaseSignUp(formData) {
         return true;
     }
 }
+
+// 
